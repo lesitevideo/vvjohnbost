@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Musée maison John Bost - visite virtuelle</title>
+<link rel="icon" href="" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="dist/css/main.css">
+</head>
+<body>
+<div class="loader"></div>
+<div class="row no-gutter">
+  <div class="col-xs-3 scroll">
+    <div class=""> 
+      <!--<img src="images/logomenu.jpg" width="100%" alt=""/>-->
+      <div class="wrapperpics" id="thumb01" onClick="audio.pause();setpano( '6H8YaaL5pswAAAQ3j-Soeg' );">
+        <h2 style="" class="wti"><span style="font-size:20px;"><strong>SALLE 1</strong></span><br/>
+          Une oeuvre prophétique : les Asiles de Laforce</h2>
+        <img width="100%" src="images/salle01_01.jpg" class="thumb"> </div>
+      <div class="wrapperpics" id="thumb02" onClick="audio.pause();setpano('_8I_cH9rq6sAAAQ3j-SoaA' );">
+        <h2 style="" class="wti"><span style="font-size:20px;"><strong>SALLE 2</strong></span><br/>
+          L'émergence du protestantisme et l’histoire de la famille Bost</h2>
+        <img width="100%" src="images/salle02_01.jpg" class="thumb"> </div>
+      <div class="wrapperpics" id="thumb03" onClick="audio.pause();setpano( 'bMC6HVCz34EAAAQ3j-Sobg' );">
+        <h2 style="" class="wti"><span style="font-size:20px;"><strong>SALLE 3</strong></span><br/>
+          John et Eugénie Bost : l’oeuvre de leur vie</h2>
+        <img width="100%" src="images/salle03_01.jpg" class="thumb"> </div>
+      <div class="wrapperpics" id="thumb04" onClick="audio.pause();setpano( 'IeqxQ0dBLh8AAAQ3j-SodQ' );">
+        <h2 style="" class="wti"><span style="font-size:20px;"><strong>SALLE 4</strong></span><br/>
+          Quelques Bost au XXème siècle</h2>
+        <img width="100%" src="images/salle04_01.jpg" class="thumb"> </div>
+      <div class="wrapperpics" id="thumb05" onClick="audio.pause();setpano( 'F:-cQJGhbuVzco/WLg3ovZbFCI/AAAAAAAAwlM/LAg01lhmFLkzQUMU_NIXKRNZTbOH_ufyACLIB' );">
+        <h2 style="" class="wti"><span style="font-size:20px;"><strong>SALLE 5</strong></span><br/>
+          La Fondation John BOST aux XXème et XXIème siècles</h2>
+        <img width="100%" src="images/salle05_01.jpg" class="thumb"> </div>
+      <div class="wrapperpics" id="thumb06" onClick="audio.pause();setpano( 'F:-QIhAQux4eBE/WLg3_ouLAsI/AAAAAAAAwlA/2FzQI_D_-KUc0mhbPQVZRQPtlD8k2hWUACLIB' );">
+        <h2 style="" class="wti"><span style="font-size:20px;"><strong>SALLE 6</strong></span><br/>
+          Espace “un autre regard”</h2>
+        <img width="100%" src="images/salle06_01.jpg" class="thumb"> </div>
+    </div>
+  </div>
+  <div class="col-xs-9 panowrapper">
+    <div id="textepanos"><strong>SALLE 1 / Une oeuvre prophétique : les Asiles de Laforce</strong><br/>
+      Mise en valeur de l’originalité et de l’ampleur de cette « cité prophétique » conçue par John Bost au XIXème siècle.</div>
+    <div id="subtitles"></div>
+    <div id="pano"></div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
+<script src="dist/js/bootstrap.min.js"></script> 
+<script src="dist/js/main.js"></script> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzh2pd1XnDFZy1AVDkoaAbWecaP0PR9gw&callback=initPano" async defer></script>
+</body>
+</html>
