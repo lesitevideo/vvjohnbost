@@ -1,3 +1,4 @@
+
 var affichage_panneau = false;
 var links, linksarr = new Array();
 var map, panorama;
@@ -14,7 +15,7 @@ var audio = new Audio();
 var liszt = new Audio();
 var curhotspotsound;
 
-var panoid = 'ReUaWuLstmMAAAQ3j-SoeQ'; //pano dde départ ReUaWuLstmMAAAQ3j-SoeQ
+var panoid = 'CAoSLEFGMVFpcE1ZYXZTV0h5RHltM3NwVWN4RTdVajRObzI1NDFJaXJTOU5BaGhJ'; //pano dde départ
 
 function addmarker(name, icon, latitude, longitude, mp3) {
 	var hotspoticon = {
@@ -55,14 +56,7 @@ function addmarker(name, icon, latitude, longitude, mp3) {
 		//}
 	});
 
-	/*
-	var myoverlay = new google.maps.OverlayView();
-	myoverlay.draw = function() {
-		this.getPanes().markerLayer.id = 'markerLayer';
-		console.log(this.getPanes().markerLayer);
-	};
-	myoverlay.setMap(map);
-	*/
+
 
 	return hotspot;
 
@@ -76,7 +70,7 @@ function setpano(panoid) {
 	document.getElementById("subtitles").innerHTML = "";
 	panorama = map.getStreetView();
 	panorama.setOptions({
-		pano: panoid
+		pano: panoid //44.8669597,0.3792856
 	});
 	panorama.setPov(({
 		heading: 265,
@@ -121,7 +115,7 @@ function initPano() {
 		zoom: 18,
 		streetViewControl: false
 	});
-
+	
 	setpano(panoid);
 	resetbuttons("thumb01");
 
@@ -148,26 +142,27 @@ function initPano() {
 	var hotspot10 = addmarker('Salle des expositions temporaires - <a target="_blank" style="color:#61c342;" href="http://maisonbost.com/exposition-temporaire/">Cliquez ici pour voir l\'exposition</a>', "images/icons/hotspot01/icon.png", 44.866981030864416, 0.37924679337515954, 'audio/BOST-G.mp3');
 
 	panorama.addListener('links_changed', function() {
-		if (panorama.getPano() == "ReUaWuLstmMAAAQ3j-SoeQ") {
-			// virer le pano exterieur
-			panorama.getLinks().splice(0, 1);
+		if (panorama.getPano() == 'CAoSLEFGMVFpcE1ZYXZTV0h5RHltM3NwVWN4RTdVajRObzI1NDFJaXJTOU5BaGhJ') {
 			
+			// virer le pano exterieur
+			panorama.getLinks().splice(1, 1);
+		}
 			// lien vers photosphere salle 4>5
-		}  else if( panorama.getPano() == "lW7iC2IHZicAAAQ3j-Sodg" ){
+		/*}  else if( panorama.getPano() == "lW7iC2IHZicAAAQ3j-Sodg" ){//lW7iC2IHZicAAAQ3j-Sodg
 			 panorama.getLinks().push({
 				description: '',
 				heading: 75,
-				pano: 'F:-cQJGhbuVzco/WLg3ovZbFCI/AAAAAAAAwlM/LAg01lhmFLkzQUMU_NIXKRNZTbOH_ufyACLIB'
+				pano: 'CAoSLEFGMVFpcE94YmlPSVpmdW12Y216MHVteVF1R0dQclF0M2QyTV84dURXWER0'
 			 });
 			 
-		} else if( panorama.getPano() == "F:-cQJGhbuVzco/WLg3ovZbFCI/AAAAAAAAwlM/LAg01lhmFLkzQUMU_NIXKRNZTbOH_ufyACLIB" ){
+		} else if( panorama.getPano() == "CAoSLEFGMVFpcE94YmlPSVpmdW12Y216MHVteVF1R0dQclF0M2QyTV84dURXWER0" ){
 			 panorama.getLinks().push({
 				description: '',
 				heading: -75,
 				pano: 'lW7iC2IHZicAAAQ3j-Sodg'
 			 });
 			 
-		}
+		}*/
 	});
 
 	panorama.addListener('pano_changed', function() {
@@ -175,7 +170,7 @@ function initPano() {
 		panoid = panorama.getPano();
 
 
-		if (panoid == "6H8YaaL5pswAAAQ3j-Soeg" || panoid == "ReUaWuLstmMAAAQ3j-SoeQ" || panoid == "n98ArGv0y34AAAQ3j-Soew" || panoid == "dynJLy1XqoMAAAQ3j-SoZA" || panoid == "hmsx_cBw9Q0AAAQ3j-SoZQ" || panoid == "sGcFcoMWvnIAAAQ3j-SoZg" || panoid == "ET89i5KH1ZoAAAQ3j-SoZw") {
+		if (panoid == "CAoSLEFGMVFpcE1yem45QmRDZjNjYnFKYTJIVU5xaUdmYXZSaFN0ME8teDNCbmFU" || panoid == "CAoSLEFGMVFpcE1ZYXZTV0h5RHltM3NwVWN4RTdVajRObzI1NDFJaXJTOU5BaGhJ" || panoid == "CAoSLEFGMVFpcE5DcnZMUndTcEppbzR5Y2dVRnlLdEYxTzZ6cHo1UUdicUo3QkU3" || panoid == "CAoSLEFGMVFpcFBjVFpPSjRuZXhCaXhYVEhpQ25FdXU5Zzd5TGlWUE02WnFySC1O" || panoid == "CAoSLEFGMVFpcE1KeDBhWTg3RmxZWE1KWDl6NDRYbnI1QkFzZjRQX2p1YnFOX0RH" || panoid == "CAoSLEFGMVFpcE05WG45ODR6QVhTVWNITXktWURiSzBMcjRvQzBZMnVCeEs4dGEx" || panoid == "ET89i5KH1ZoAAAQ3j-SoZw") {
 			// salle1
 			resetbuttons("thumb01");
 			hotspot3.visible = false;
@@ -190,37 +185,38 @@ function initPano() {
 			liszt.pause();
 			document.getElementById("textepanos").innerHTML = "<strong>SALLE 1 / Une oeuvre prophétique : les Asiles de Laforce</strong><br/>Mise en valeur de l’originalité et de l’ampleur de cette « cité prophétique » conçue par John Bost au XIXème siècle.";
 
-			if (panoid == "n98ArGv0y34AAAQ3j-Soew") {
+			if (panoid == "CAoSLEFGMVFpcE5DcnZMUndTcEppbzR5Y2dVRnlLdEYxTzZ6cHo1UUdicUo3QkU3") {
 				hotspot1.setPosition(new google.maps.LatLng(44.866928979019015, 0.37946596274014155));
 				hotspot1.visible = true;
-			} else if (panoid == "6H8YaaL5pswAAAQ3j-Soeg") {
+			/*} else if (panoid == "CAoSLEFGMVFpcE1yem45QmRDZjNjYnFKYTJIVU5xaUdmYXZSaFN0ME8teDNCbmFU") {
 				hotspot1.setPosition(new google.maps.LatLng(44.86691918110303, 0.3793795236808819));
 				hotspot1.visible = true;
 			} else if (panoid == "dynJLy1XqoMAAAQ3j-SoZA") {
 				hotspot1.setPosition(new google.maps.LatLng(44.86695029280749, 0.37953649931432665));
-				hotspot1.visible = true;
+				hotspot1.visible = true;*/
 			} else {
 				hotspot1.visible = false;
 			}
 
-			if (panoid == "hmsx_cBw9Q0AAAQ3j-SoZQ") {
+			if (panoid == "CAoSLEFGMVFpcE1KeDBhWTg3RmxZWE1KWDl6NDRYbnI1QkFzZjRQX2p1YnFOX0RH") { //6
 				hotspot2.setPosition(new google.maps.LatLng(44.86694934614252, 0.3793641148997722));
 				hotspot2.visible = true;
-			} else if (panoid == "dynJLy1XqoMAAAQ3j-SoZA") {
+			} else if (panoid == "CAoSLEFGMVFpcFBjVFpPSjRuZXhCaXhYVEhpQ25FdXU5Zzd5TGlWUE02WnFySC1O") { //3
 				hotspot2.setPosition(new google.maps.LatLng(44.86694612389029, 0.37932509829272476));
 				hotspot2.visible = true;
-			} else if (panoid == "sGcFcoMWvnIAAAQ3j-SoZg") {
+			} else if (panoid == "CAoSLEFGMVFpcE05WG45ODR6QVhTVWNITXktWURiSzBMcjRvQzBZMnVCeEs4dGEx") { //7
 				hotspot2.setPosition(new google.maps.LatLng(44.86691303625237, 0.37939844697427816));
 				hotspot2.visible = true;
 			} else {
 				hotspot2.visible = false;
 			}
 
-			if (panoid == "6H8YaaL5pswAAAQ3j-Soeg") {
+			if (panoid == "CAoSLEFGMVFpcE1yem45QmRDZjNjYnFKYTJIVU5xaUdmYXZSaFN0ME8teDNCbmFU") {
+				console.log('play audio');
 				playaudio('audio/BOST-A.mp3');
 			}
 
-		} else if (panoid == "_8I_cH9rq6sAAAQ3j-SoaA" || panoid == "tmVoBXFjm5IAAAQ3j-SoaQ" || panoid == "r2aUWpf2HBEAAAQ3j-Soag" || panoid == "a2hm_G811b4AAAQ3j-Soaw" || panoid == "837zNjhHeMcAAAQ3j-SobA" || panoid == "LyyukB3OhQIAAAQ3j-SobQ") {
+		} else if (panoid == "CAoSLEFGMVFpcFBJbWlTcHBUaFAzRmUwN0w0NVM3ODNISEwwak9MWkR4dDdNdVRY" || panoid == "tmVoBXFjm5IAAAQ3j-SoaQ" || panoid == "r2aUWpf2HBEAAAQ3j-Soag" || panoid == "a2hm_G811b4AAAQ3j-Soaw" || panoid == "CAoSLEFGMVFpcE9Wek5xQkxfRi0zNjBZX0RwcjA2VkwwaDNEajRIOW5tMG1mMWlo" || panoid == "CAoSLEFGMVFpcFBkdnJYazdpZmpqMkZKR1hSNjNJaXp5UG1SRU1Kenk0T0I0Q2s3") {
 			// salle 2
 			resetbuttons("thumb02");
 			hotspot1.visible = false;
@@ -234,11 +230,12 @@ function initPano() {
 			liszt.pause();
 
 			document.getElementById("textepanos").innerHTML = "<strong>SALLE 2 / L'émergence du protestantisme et l’histoire de la famille Bost</strong><br/>Quelques repères simples de l’histoire du protestantisme au sein de l’histoire générale des religions et des conceptions du monde. Puis, la découverte de John Bost et Eugénie Meynardie-Ponterie, des histoires personnelles et familiales.";
-			if (panoid == "_8I_cH9rq6sAAAQ3j-SoaA") {
+			
+			if (panoid == "CAoSLEFGMVFpcFBJbWlTcHBUaFAzRmUwN0w0NVM3ODNISEwwak9MWkR4dDdNdVRY") { //1
 				playaudio('audio/BOST-B.mp3');
 			}
 
-			if (panoid == "r2aUWpf2HBEAAAQ3j-Soag") {
+			if (panoid == "CAoSLEFGMVFpcFBJbWlTcHBUaFAzRmUwN0w0NVM3ODNISEwwak9MWkR4dDdNdVRY") {
 				hotspot4.setPosition(new google.maps.LatLng(44.8670497620263, 0.3792609966387772));
 				hotspot4.visible = true;
 			} else if (panoid == "tmVoBXFjm5IAAAQ3j-SoaQ") {
@@ -251,20 +248,20 @@ function initPano() {
 				hotspot4.visible = false;
 			}
 
-			if (panoid == "_8I_cH9rq6sAAAQ3j-SoaA") {
+			if (panoid == "CAoSLEFGMVFpcFBJbWlTcHBUaFAzRmUwN0w0NVM3ODNISEwwak9MWkR4dDdNdVRY") {
 				hotspot3.setPosition(new google.maps.LatLng(44.86688444258257, 0.3793607623817934));
 				hotspot3.visible = true;
-			} else if (panoid == "LyyukB3OhQIAAAQ3j-SobQ") {
+			} else if (panoid == "CAoSLEFGMVFpcFBkdnJYazdpZmpqMkZKR1hSNjNJaXp5UG1SRU1Kenk0T0I0Q2s3") {
 				hotspot3.setPosition(new google.maps.LatLng(44.86692189124497, 0.37934170469861783));
 				hotspot3.visible = true;
-			} else if (panoid == "837zNjhHeMcAAAQ3j-SobA") {
+			} else if (panoid == "CAoSLEFGMVFpcE9Wek5xQkxfRi0zNjBZX0RwcjA2VkwwaDNEajRIOW5tMG1mMWlo") {
 				hotspot3.setPosition(new google.maps.LatLng(44.866939470909635, 0.37945997751489813));
 				hotspot3.visible = true;
 			} else {
 				hotspot3.visible = false;
 			}
 
-		} else if (panoid == "bMC6HVCz34EAAAQ3j-Sobg" || panoid == "sHxv3OFNBzEAAAQ3j-SocQ" || panoid == "yGwry4eHrhAAAAQ3j-Sobw" || panoid == "9MwPvpplX7kAAAQ3j-SocA" || panoid == "sHxv3OFNBzEAAAQ3j-SocQ" || panoid == "aWurh8Kf5C4AAAQ3j-Socg" || panoid == "k_pUl_dmeTIAAAQ3j-Socw") {
+		} else if (panoid == "CAoSLEFGMVFpcE9GZ2Y5WFhXVmpYR2lxMld1eDgtb2xKdDlhVmdBMDh1SkdITlZi" || panoid == "CAoSLEFGMVFpcE5HM2hncFdYTjh4ek9fVlFZZnFFY19sUWo3bjNjc0h1clc4Tks1" || panoid == "CAoSLEFGMVFpcE5LMENIU1QwNG43ajM4MDlkV3NmU1dNa05IN2w2TDN5NVdTR19x" || panoid == "CAoSLEFGMVFpcE1sRFVnQXdJRnd2Rm9kblhCS2dWdVQwOUVBUUV2dzdCM3pBRkRD" || panoid == "CAoSLEFGMVFpcFBjR2szbzRvNDZTeXQ2eVBVYUZ5UGgyTkZuTm9mR2kxTDJhVFlK") {
 			// salle 3
 			resetbuttons("thumb03");
 			hotspot1.visible = false;
@@ -278,24 +275,26 @@ function initPano() {
 			playliszt();
 
 			document.getElementById("textepanos").innerHTML = "<strong>SALLE 3 / John et Eugénie Bost : l’oeuvre de leur vie</strong><br/>Création des « Asiles de Laforce » à partir de l’édification du premier bâtiment La Famille en 1848, et leur développement au cours du XIXème siècle.";
-
-			if (panoid == "bMC6HVCz34EAAAQ3j-Sobg") {
+			
+			//lit roulant
+			if (panoid == "CAoSLEFGMVFpcE9GZ2Y5WFhXVmpYR2lxMld1eDgtb2xKdDlhVmdBMDh1SkdITlZi") {
 				hotspot5.setPosition(new google.maps.LatLng(44.866981030864416, 0.37924679337515954));
 				hotspot5.visible = true;
-			} else if (panoid == "yGwry4eHrhAAAAQ3j-Sobw") {
+			} else if (panoid == "CAoSLEFGMVFpcE5HM2hncFdYTjh4ek9fVlFZZnFFY19sUWo3bjNjc0h1clc4Tks1") {
 				hotspot5.setPosition(new google.maps.LatLng(44.867003590771205, 0.3792682660897526));
 				hotspot5.visible = true;
-			} else if (panoid == "9MwPvpplX7kAAAQ3j-SocA") {
+			} else if (panoid == "CAoSLEFGMVFpcE5LMENIU1QwNG43ajM4MDlkV3NmU1dNa05IN2w2TDN5NVdTR19x") {
 				hotspot5.setPosition(new google.maps.LatLng(44.8669625650338, 0.37927556706586074));
 				hotspot5.visible = true;
 			} else {
 				hotspot5.visible = false;
 			}
-
-			if (panoid == "aWurh8Kf5C4AAAQ3j-Socg") {
+			
+			// piano
+			if (panoid == "CAoSLEFGMVFpcFBjR2szbzRvNDZTeXQ2eVBVYUZ5UGgyTkZuTm9mR2kxTDJhVFlK") {
 				hotspot6.setPosition(new google.maps.LatLng(44.86692034846274, 0.379302064067474));
 				hotspot6.visible = true;
-			} else if (panoid == "sHxv3OFNBzEAAAQ3j-SocQ") {
+			} else if (panoid == "CAoSLEFGMVFpcE1sRFVnQXdJRnd2Rm9kblhCS2dWdVQwOUVBUUV2dzdCM3pBRkRD") {
 				hotspot6.setPosition(new google.maps.LatLng(44.866911599696294, 0.3792600345735764));
 				hotspot6.visible = true;
 
@@ -303,10 +302,10 @@ function initPano() {
 				hotspot6.visible = false;
 			}
 
-			if (panoid == "bMC6HVCz34EAAAQ3j-Sobg") {
+			if (panoid == "CAoSLEFGMVFpcE9GZ2Y5WFhXVmpYR2lxMld1eDgtb2xKdDlhVmdBMDh1SkdITlZi") {
 				playaudio('audio/BOST-C.mp3');
 			}
-		} else if (panoid == "IeqxQ0dBLh8AAAQ3j-SodQ" || panoid == "lW7iC2IHZicAAAQ3j-Sodg" || panoid == "xNPx6Qb1Y9YAAAQ3j-SodA") {
+		} else if (panoid == "CAoSLEFGMVFpcE9PUE4yQ0R3WUxWclpmUDIzeHVaNEZSbHN5VExHNVB5Rm14NUVt" || panoid == "CAoSLEFGMVFpcE1OaXpKemUwNW80TWFVRE5WOE1FVEg3SXpPWFhYdklIZ3pld3R0" || panoid == "CAoSLEFGMVFpcE1oZk8yc3h2T1V4LXU1MzRPNDh0WkhSWVZvU01yNEYtSTRSSlFh") {
 			// salle 4
 			resetbuttons("thumb04");
 			hotspot1.visible = false;
@@ -319,10 +318,10 @@ function initPano() {
 			hotspot9.visible = false;
 			hotspot10.visible = false;
 			
-			if (panoid == "IeqxQ0dBLh8AAAQ3j-SodQ") {
+			if (panoid == "CAoSLEFGMVFpcE9PUE4yQ0R3WUxWclpmUDIzeHVaNEZSbHN5VExHNVB5Rm14NUVt") {
 				hotspot7.setPosition(new google.maps.LatLng(44.86706542314707, 0.3792240722370934));
 				hotspot7.visible = true;
-			} else if (panoid == "lW7iC2IHZicAAAQ3j-Sodg") {
+			} else if (panoid == "CAoSLEFGMVFpcE1OaXpKemUwNW80TWFVRE5WOE1FVEg3SXpPWFhYdklIZ3pld3R0") {
 				hotspot7.setPosition(new google.maps.LatLng(44.86709040749748, 0.3792122413584593));
 				hotspot7.visible = true;
 
@@ -333,10 +332,10 @@ function initPano() {
 			liszt.pause();
 
 			document.getElementById("textepanos").innerHTML = "<strong>SALLE 4 / Quelques Bost au XXème siècle</strong><br/>Découvrez les portraits de personnages divers et forts : de Charles Bost, historien au chanteur Renaud.";
-			if (panoid == "IeqxQ0dBLh8AAAQ3j-SodQ") {
+			if (panoid == "CAoSLEFGMVFpcE9PUE4yQ0R3WUxWclpmUDIzeHVaNEZSbHN5VExHNVB5Rm14NUVt") {
 				playaudio('audio/BOST-D.mp3');
 			}
-		} else if (panoid == "F:-5iZC5WgmsU8/WLg3yOvQcSI/AAAAAAAAwlA/sNZ7hKJrEnMD15oeH6r4vAwBim3UtEZ4wCLIB" || panoid == "F:-cQJGhbuVzco/WLg3ovZbFCI/AAAAAAAAwlM/LAg01lhmFLkzQUMU_NIXKRNZTbOH_ufyACLIB"){
+		} else if (panoid == "F:-5iZC5WgmsU8/WLg3yOvQcSI/AAAAAAAAwlA/sNZ7hKJrEnMD15oeH6r4vAwBim3UtEZ4wCLIB" || panoid == "CAoSLEFGMVFpcE94YmlPSVpmdW12Y216MHVteVF1R0dQclF0M2QyTV84dURXWER0"){
 			// salle 5
 			resetbuttons("thumb05");
 			hotspot1.visible = false;
@@ -351,21 +350,18 @@ function initPano() {
 			
 			liszt.pause();
 			document.getElementById("textepanos").innerHTML = "<strong>SALLE 5 / La Fondation John BOST aux XXème et XXIème siècles</strong><br/>Le contenu de l’œuvre est abordé ici par une mise en lumière de l’évolution des méthodes d’accueil, d’accompagnement et de soin des résidents.";
-			if (panoid == "F:-cQJGhbuVzco/WLg3ovZbFCI/AAAAAAAAwlM/LAg01lhmFLkzQUMU_NIXKRNZTbOH_ufyACLIB") {
+			
+			if (panoid == "CAoSLEFGMVFpcE94YmlPSVpmdW12Y216MHVteVF1R0dQclF0M2QyTV84dURXWER0") {
 				playaudio('audio/BOST-E.mp3');
 			}
-			if (panoid == "F:-cQJGhbuVzco/WLg3ovZbFCI/AAAAAAAAwlM/LAg01lhmFLkzQUMU_NIXKRNZTbOH_ufyACLIB") {
+			if (panoid == "CAoSLEFGMVFpcE94YmlPSVpmdW12Y216MHVteVF1R0dQclF0M2QyTV84dURXWER0") {
 				hotspot8.setPosition(new google.maps.LatLng(44.86696799394511,0.37922000522405597));
 				hotspot8.visible = true;
-			//} else if (panoid == "F:-5iZC5WgmsU8/WLg3yOvQcSI/AAAAAAAAwlA/sNZ7hKJrEnMD15oeH6r4vAwBim3UtEZ4wCLIB") {
-				//hotspot8.setPosition(new google.maps.LatLng(44.86709040749748, 0.3792122413584593));
-				//hotspot8.visible = true;
-
 			} else {
 				hotspot8.visible = false;
 			}
 			
-		} else if (panoid == "F:-QIhAQux4eBE/WLg3_ouLAsI/AAAAAAAAwlA/2FzQI_D_-KUc0mhbPQVZRQPtlD8k2hWUACLIB") {
+		} else if (panoid == "CAoSLEFGMVFpcE9OWWJ5dGxZdGF0QktFR2pSX3oxYUxqODRoNmxNMUNWQ09hZ1Z6") {
 			// salle 6
 			resetbuttons("thumb06");
 			hotspot1.visible = false;
